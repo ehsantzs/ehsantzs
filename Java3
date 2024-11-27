@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class EmployeeSalary {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // تعداد کارمندان
+        int numEmployees = 10;
+        
+        // آرایه ها برای ذخیره نام و حقوق کارمندان
+        String[] names = new String[numEmployees];
+        double[] salaries = new double[numEmployees];
+        
+        // دریافت نام و حقوق از کاربر
+        for (int i = 0; i < numEmployees; i++) {
+            System.out.print("نام کارمند " + (i+1) + " را وارد کنید: ");
+            names[i] = scanner.nextLine();
+            
+            System.out.print("حقوق کارمند " + (i+1) + " را وارد کنید: ");
+            salaries[i] = scanner.nextDouble();
+            scanner.nextLine(); // Clear the buffer
+        }
+        
+        // چاپ اطلاعات و محاسبات در سه قسمت
+        System.out.println("\nقسمت الف: حقوق اولیه کارمندان");
+        for (int i = 0; i < numEmployees; i++) {
+            System.out.println(names[i] + " : " + salaries[i]);
+        }
+        
+        System.out.println("\nقسمت ب: حقوق پس از محاسبات حق بیمه و حق اولاد");
+        for (int i = 0; i < numEmployees; i++) {
+            double salary = salaries[i];
+            
+            if (salary > 7500) {
+                salary = salary - (salary * 0.05); // کم کردن ۵ درصد حق بیمه
+                salary = salary + (salary * 0.10); // اضافه کردن ۱۰ درصد حق اولاد
+                salary = salary - (salary * 0.035); // کم کردن ۳.۵ درصد بیمه تکمیلی
+            }
+            System.out.println(names[i] + " : " + salary);
+        }
+
+        System.out.println("\nقسمت پ: حقوق پس از محاسبه مالیات برای کارمندان با حقوق بیش از 10000");
+        for (int i = 0; i < numEmployees; i++) {
+            double salary = salaries[i];
+            
+            if (salary > 10000) {
+                salary = salary - (salary * 0.175); // کم کردن ۱۷.۵ درصد مالیات
+            }
+            System.out.println(names[i] + " : " + salary);
+        }
+
+        System.out.println("\nقسمت ج: حقوق پس از محاسبه مالیات برای کارمندان با حقوق بیش از 20000");
+        for (int i = 0; i < numEmployees; i++) {
+            double salary = salaries[i];
+            
+            if (salary > 20000) {
+                salary = salary - (salary * 0.1825); // کم کردن ۱۸.۲۵ درصد مالیات
+            }
+            System.out.println(names[i] + " : " + salary);
+        }
+        
+        scanner.close();
+    }
+}
