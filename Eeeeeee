@@ -1,0 +1,55 @@
+import java.util.*;
+
+public class main {
+
+    public static void main(String[] args) {
+        System.out.print("Number of users : ");
+        Scanner sc = new Scanner(System.in);
+        int b = sc.nextInt();
+
+        String[] names = new String[b];
+        String[] surnames = new String[b];
+        int[] testy = new int[b];
+        String[] doctor = new String[b];
+        int[] score = new int[b];
+        
+        for (int i = 0;i < b;i++){
+            score[i] = 0;
+            System.out.print("names " + (i+1) + " : ");
+            names[i] = sc.next();
+            System.out.print("surnames " + (i+1) + " : ");
+            surnames[i] = sc.next();
+            System.out.print("Test Year " + (i+1) +  " : ");
+            testy[i] = sc.nextInt();
+            System.out.print("Doctor Names " + (i+1) + " : ");
+            doctor[i] = sc.next();
+
+            System.out.println("Answer With No or Yes : ");
+            System.out.print("First question: Have you thought about suicide?");
+            if (sc.next() != "Yes"){
+                score[i] += 25;
+            }
+            System.out.print("Second question: Have you ever been disappointed in love?");
+            if (sc.next() != "Yes"){
+                score[i] += 25;
+            }
+            System.out.print("Question 3: Do you have hope for the future?");
+            if (sc.next() == "Yes"){
+                score[i] += 25;
+            }
+            System.out.print("Question 4: Do you have hope in life?");
+            if (sc.next() == "Yes"){
+                score[i] += 25;
+            }
+
+        }
+        sc.close();
+        for(int i = 0;i < b;i++) {
+            System.out.println("Names " +(i+1)+ " : " + names[i]);
+            System.out.println("surnames " +(i+1)+ " : " + surnames[i]);
+            System.out.println("Test Year " +(i+1)+ " : "+ testy[i]);
+            System.out.println("doctor names " +(i+1)+ " : "+ doctor[i]);
+            System.out.println("Score " +(i+1)+ " : "+ score[i]);
+        }
+    }
+}
