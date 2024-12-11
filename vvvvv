@@ -1,0 +1,63 @@
+import java.util.*;
+
+public class Untitled-1 {
+
+    public static void main(String[] args) {
+        System.out.print("تعداد کاربر :");
+        Scanner sc = new Scanner(System.in);
+        int b = sc.nextInt();
+
+        String[] names = new String[b];
+
+        String[] surnames = new String[b];
+
+        int[] testy = new int[b];
+
+        String[] doctor = new String[b];
+
+        int[] score = new int[b];
+        
+        for (int i = 0;i < b;i++){
+            score[i] = 0;
+            System.out.print("نام " + (i+1) + " : ");
+            names[i] = sc.next();
+            System.out.print("نام خانوادگی " + (i+1) + " : ");
+            surnames[i] = sc.next();
+            System.out.print("سن " + (i+1) +  " : ");
+            testy[i] = sc.nextInt();
+            System.out.print("نام دکتر " + (i+1) + " : ");
+            doctor[i] = sc.next();
+
+            System.out.println("با بله و خیر جواب دهید :");
+            System.out.print("آیا احساس خودکشی میکنید");
+            if (sc.next() != "خیر"){
+                score[i] += 25;
+            }
+            System.out.print("آیا مطالعه دارید؟");
+            if (sc.next() != "بله"){
+                score[i] += 25;
+            }
+            System.out.print("آیا احساس خوشبختی میکنید");
+            if (sc.next() == "بله"){
+                score[i] += 25;
+            }
+            System.out.print("آیا تا به حال از زندگی نا امید شده اید ؟");
+            if (sc.next() == "خیر"){
+                score[i] += 25;
+            }
+
+        }
+        sc.close();
+        for(int i = 0;i < b;i++) {
+            System.out.println("نام " +(i+1)+ " : " + names[i]);
+
+            System.out.println("نام خانوادگی " +(i+1)+ " : " + surnames[i]);
+
+            System.out.println("سن " +(i+1)+ " : "+ testy[i]);
+
+            System.out.println("نام دکتر " +(i+1)+ " : "+ doctor[i]);
+
+            System.out.println("نمره " +(i+1)+ " : "+ score[i]);
+        }
+    }
+}
